@@ -11,7 +11,7 @@ class RunTests extends TestCase {
         get: function (_) return bar,
         set: function (_, param) return bar = param,
       },
-      foo: function (self, b:Bool, i:Int) return '${self.test}:$b:$i',
+      foo: function (self, b:Bool, ?i:Int) return '${self.test}:$b:$i',
     });
 
     assertEquals(bar, a.bar);
