@@ -32,3 +32,7 @@ var ogre = new tink.Adhoc<Enemy>({ hp: 100 }, {
 The type parameter is the interface being implemented. As for constructor arguments, the first one is the adhoc instance's internal state, which gets passed to all methods and accessors as the first argument (you may call it as you wish). Notice that all implementations live in the very scope they were created in, so you can capture variables, access the outer `this` and so forth.
 
 Adhoc subclassing is planned for a later time.
+
+## Alternatives
+
+Depending on your needs, you may also want to consider using [hxAnonCls](https://github.com/andyli/hxAnonCls), which at this stage is more mature and richer in features, but requires a build macro to run on the calling class.
