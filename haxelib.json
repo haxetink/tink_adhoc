@@ -13,7 +13,7 @@
     "back2dos"
   ],
   "releasenote": "initial release",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "url": "https://github.com/haxetink/tink_adhoc/",
   "dependencies": {
     "tink_macro": ""
