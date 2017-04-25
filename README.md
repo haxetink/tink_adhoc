@@ -1,4 +1,6 @@
-# Tink Adhoc Implementations
+# Tink Adhoc Implementations 
+
+[![Build Status](https://travis-ci.org/haxetink/tink_adhoc.svg?branch=master)](https://travis-ci.org/haxetink/tink_adhoc)
 
 This library provides a way to make adhoc implementations, very similar to Java's anonymous classes.
 
