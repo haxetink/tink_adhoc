@@ -1,0 +1,4 @@
+-dce full
+-D analyzer
+-cp tests
+-main RunTests
