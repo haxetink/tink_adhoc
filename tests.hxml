@@ -2,3 +2,7 @@
 -D analyzer
 -cp tests
 -main RunTests
+
+-lib hx3compat
+
+-D no-deprecation-warnings

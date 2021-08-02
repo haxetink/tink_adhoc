@@ -101,9 +101,28 @@ class Macro {
                   });
                   ret.fields.push(Member.setter(name, f.pos, macro param = this.__impl__.$name.set(this.__state__, param), ct));
                 }
+                
+              #if haxe4
+              case [AccNormal, AccCtor]: // final
+                init();
+                
+                ret.fields.push({
+                  name: name,
+                  pos: f.pos,
+                  access: [APublic, AFinal],
+                  kind: FVar(ct),
+                });
+
+                postConstruct.push(macro this.$name = __impl__.$name);
+              #end
+              
+              
               default:
-                f.pos.error('unsupported accessor combination');
+                f.pos.error('unsupported accessor combination, [$read, $write]');
             }
+          case FMethod(kind) if(f.meta.has(':compilerGenerated')):
+            // skip
+            
           case FMethod(kind):
             init(
               switch ct {
@@ -112,6 +131,7 @@ class Macro {
                 default: throw 'assert';
               }
             );
+            
             ret.fields.push({
               name: name,
               pos: f.pos,

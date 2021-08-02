@@ -7,6 +7,7 @@ class RunTests extends TestCase {
     var bar = 5;
     var a = new tink.Adhoc<Foo>({ test: 'yo' }, {
       plain: 3,
+      const: 'foo',
       bar: {
         get: function (_) return bar,
         set: function (_, param) return bar = param,
@@ -15,6 +16,8 @@ class RunTests extends TestCase {
     });
 
     assertEquals(bar, a.bar);
+    assertEquals(3.0, a.plain);
+    assertEquals('foo', a.const);
     assertEquals('yo:true:null', a.foo(true));
     assertEquals('yo:true:4', a.foo(true, 4));
     
@@ -42,5 +45,6 @@ class RunTests extends TestCase {
 interface Foo {
   var bar(get, set):Int;
   var plain(default, null):Float;
+  final const:String;
   function foo(b:Bool, ?i:Int):String;
 }
